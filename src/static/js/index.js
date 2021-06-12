@@ -287,23 +287,7 @@ async function track() {
 };
 
 async function weather() {
-    let units = {};
-    if (!configuration.openweather.key || !configuration.openweather.placeid) {
-        document.getElementById("weather").style.display = "none";
-    } if (configuration.openweather.key && configuration.openweather.placeid) {
-        document.getElementById("weather").style.display = "block";
-    };
-    
-    if (configuration.openweather.units == 0 || configuration.openweather.units == undefined) {
-        units.fc = "C"
-        units.unit = "metric"
-    }
-    if (configuration.openweather.units == 1) { 
-        units.fc = "F"
-        units.unit = "imperial"
-    }
-
-    fetch(`https://api.openweathermap.org/data/2.5/weather?id=${configuration.openweather.placeid}&appid=${configuration.openweather.key}&units=${units.unit}`)  
+    fetch(`https://api.veth1.cc/utils/weather`)  
     .then(function(resp) { return resp.json() })
     .then(function(data) {
         const icon = document.getElementsByClassName("weather-icon")[0]
@@ -325,7 +309,7 @@ async function weather() {
 
         var temperature = Math.round(parseFloat(data.main.temp));
         var conditions = data.weather[0].description;
-        document.getElementById('temp').innerHTML = temperature + `&deg;${units.fc}`;
+        document.getElementById('temp').innerHTML = temperature + `&deg;C`;
         document.getElementById('weatherdesc').innerHTML = conditions.split("")[0].toUpperCase() + conditions.slice(1);
 
 
