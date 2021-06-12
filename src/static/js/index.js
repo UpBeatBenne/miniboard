@@ -23,27 +23,11 @@ const crazyArray = [
 ];
 
 async function fadeInNotif() {
-    var fade = document.getElementById("notif");
-    var opacity = 0.01;
-    var intervalID = setInterval(function() {
-        if (opacity <= 0) return clearInterval(intervalID);
-        if (opacity < 1) {
-            opacity = opacity + 0.01
-            fade.style.opacity = opacity;
-        }
-    }, 15);
+    $('#notif').fadeIn(1000)
 }
 
 async function fadeOutNotif() {
-    var fade = document.getElementById("notif");
-    var opacity = 1;
-    var intervalID = setInterval(function() {
-        if (opacity <= 0) return clearInterval(intervalID);
-        if (opacity !== 0) {
-            opacity = opacity - 0.01
-            fade.style.opacity = opacity;
-        }
-    }, 15);
+    $('#notif').fadeIn(1000)
 }
 
 /**
@@ -52,15 +36,7 @@ async function fadeOutNotif() {
  * 
  */
 async function fadeIn(id) {
-    var fade = document.getElementById(id);
-    var opacity = 0.01;
-    var intervalID = setInterval(function() {
-        if (opacity <= 0) return clearInterval(intervalID);
-        if (opacity < 1) {
-            opacity = opacity + 0.01
-            fade.style.opacity = opacity;
-        }
-    }, 15);
+     $(`#${id}`).fadeIn(1000)
 }
 
 /**
@@ -69,15 +45,7 @@ async function fadeIn(id) {
  * 
  */
 async function fadeOut(id) {
-    var fade = document.getElementById(id);
-    var opacity = 1;
-    var intervalID = setInterval(function() {
-        if (opacity <= 0) return clearInterval(intervalID);
-        if (opacity !== 0) {
-            opacity = opacity - 0.01
-            fade.style.opacity = opacity;
-        }
-    }, 15);
+    $(`#${id}`).fadeOut(1000)
 }
 
 /**
@@ -100,9 +68,7 @@ function randomInteger(min, max) {
  */
 function loadFonts(id, font) {
     const element = document.getElementById(id);
-
     element.style.fontFamily = font;
-
     return font;
 };
 
@@ -272,7 +238,6 @@ async function track() {
             spotifycolour.style.opacity = 1;
         }, 3000);
     };
-
 
     document.getElementById("lasttitle").innerText = title;
     document.getElementById("lastartist").innerText = artist;
