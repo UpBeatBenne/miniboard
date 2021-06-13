@@ -80,6 +80,7 @@ const hoursOfDay = {
     "night": [22, 23, 0, 1, 2, 3, 4]
 };
 
+
 const configuration = window.bridge.information.getConfig();
 const name = configuration.decor.name;
 
@@ -113,14 +114,34 @@ function getGreeting() {
 
     if (hoursOfDay.morning.includes(new Date().getHours())) {
         document.getElementById("greeting").innerText = greetings.morning[Math.floor(Math.random() * greetings.morning.length)];
+        currentbrightness = getComputedStyle(document.documentElement).getPropertyValue('--brightness');
+        document.documentElement.style.setProperty('--old-brightness', currentbrightness);
+        document.documentElement.style.setProperty('--brightness', '0.5');
+        $('.bg').addClass("animate")
     } if (hoursOfDay.noon.includes(new Date().getHours())) {
+        currentbrightness = getComputedStyle(document.documentElement).getPropertyValue('--brightness');
+        document.documentElement.style.setProperty('--old-brightness', currentbrightness);
         document.getElementById("greeting").innerText = greetings.noon[Math.floor(Math.random() * greetings.noon.length)];
+        document.documentElement.style.setProperty('--brightness', '1');
+        $('.bg').addClass("animate")
     } if (hoursOfDay.afternoon.includes(new Date().getHours())) {
+        currentbrightness = getComputedStyle(document.documentElement).getPropertyValue('--brightness');
+        document.documentElement.style.setProperty('--old-brightness', currentbrightness);
         document.getElementById("greeting").innerText = greetings.afternoon[Math.floor(Math.random() * greetings.afternoon.length)];
+        document.documentElement.style.setProperty('--brightness', '1');
+        $('.bg').addClass("animate")
     } if (hoursOfDay.evening.includes(new Date().getHours())) {
+        currentbrightness = getComputedStyle(document.documentElement).getPropertyValue('--brightness');
+        document.documentElement.style.setProperty('--old-brightness', currentbrightness);
         document.getElementById("greeting").innerText = greetings.evening[Math.floor(Math.random() * greetings.evening.length)];
+        document.documentElement.style.setProperty('--brightness', '0.5');
+        $('.bg').addClass("animate")
     } if (hoursOfDay.night.includes(new Date().getHours())) {
+        currentbrightness = getComputedStyle(document.documentElement).getPropertyValue('--brightness');
+        document.documentElement.style.setProperty('--old-brightness', currentbrightness);
         document.getElementById("greeting").innerText = greetings.night[Math.floor(Math.random() * greetings.night.length)];
+        document.documentElement.style.setProperty('--brightness', '1');
+        $('.bg').addClass("animate")
     }
 
     if (birthday[0] == day && birthday[1] == month.toLowerCase()) {
