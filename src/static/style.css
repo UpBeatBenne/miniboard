@@ -16,6 +16,14 @@
 	src: url("./fonts/Manrope/woff/Manrope-ExtraBold.woff2");
 }
 
+@keyframes opacityChange {
+	from{
+		filter: brightness(var(--old-brightness))
+	} to {
+		filter: brightness(var(--brightness))
+	}
+}
+
 .time {
 	font-family: "Manrope Display";
 	padding: 0;
@@ -74,6 +82,9 @@ body {
 	background-color: #037971;
 	cursor: none;
 }
+.animate{
+	animation: opacityChange 60s;
+}
 .bg {
 	/* The image used */
 	/*background: url('https://cdn.bean.codes/a/wallpaper/whistler.jpg');*/
@@ -83,7 +94,7 @@ body {
 	background-position: center;
 	background-repeat: no-repeat;
 	background-size: cover;
-	filter: brightness(50%);
+
 }
 body,
 html {
